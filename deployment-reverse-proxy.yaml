@@ -6,6 +6,9 @@ metadata:
     service: udagram-reverse-proxy
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      service: udagram-reverse-proxy
   template:
     metadata:
       labels:
@@ -24,4 +27,5 @@ spec:
               cpu: "500m"
           ports:
             - containerPort: 8080
+      restartPolicy: Always
 
